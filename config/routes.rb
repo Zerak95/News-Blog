@@ -3,4 +3,5 @@ Rails.application.routes.draw do
   # root 'application#hello'
   root 'users#new'
   get    '/signup'    => 'users#new'
+  resources :users
 end
