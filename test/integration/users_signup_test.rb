@@ -12,5 +12,7 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
     end
     # cant use the below test without the rails-controller-testing gem
     # assert_template 'users/new' 
+    # assert_select 'div#<CSS id for error explanation>'
+    # assert_select 'div.<CSS class for field with error>'
   end
 end
