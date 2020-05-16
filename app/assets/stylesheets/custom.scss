@@ -63,21 +63,34 @@ h1, h2, h3, h4, h5, h6 {
   /* header */
 
 #logo {
-    float: left;
-    margin-right: 10px;
-    font-size: 1.7em;
-    color: #fff;
-    text-transform: uppercase;
-    letter-spacing: -1px;
-    padding-top: 9px;
-    font-weight: bold;
-  }
+  float: left;
+  margin-right: 10px;
+  font-size: 1.7em;
+  color: #fff;
+  // text-transform: uppercase;
+  letter-spacing: -1px;
+  padding-top: 9px;
+  font-weight: bold;
+}
   
-  #logo:hover {
-    color: #fff;
-    text-decoration: none;
-  }
+#logo:hover {
+  color: #fff;
+  text-decoration: none;
+}
 
+/* 
+  "Bootstrap NavBar with left, center or right aligned items",
+   Stack Overflow, 2013. [Online]. Available: 
+  https://stackoverflow.com/questions/19733447/bootstrap-navbar-with-left-center-or-right-aligned-items.
+  [Accessed: 16- May- 2020]
+*/
+@media (min-width: 768px) {
+  .navbar-nav.navbar-center {
+    position: absolute;
+    left: 50%;
+    transform: translatex(-50%);
+  }
+}
 /* footer */
 
 footer {
