@@ -37,6 +37,11 @@ class UserTest < ActiveSupport::TestCase
     assert_not @user.valid?
   end
 
+  test "phone number should not be too long" do
+    @user.email = "1" * 14
+    assert_not @user.valid?
+  end
+
   
 
   test "email validation should accept valid addresses" do
