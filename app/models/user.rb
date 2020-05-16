@@ -7,6 +7,9 @@ class User < ApplicationRecord
                       uniqueness: { case_sensitive: false }
   has_secure_password
   validates :password, presence: true, length: { minimum: 6 }
+  VALID_PHONE_NUMBER_REGEX = /\A^[0-9]{10,13}$\z/
+  validates :phone_number, presence: true, length: { maximum: 13 },
+                            format: { with: VALID_PHONE_NUMBER_REGEX }
 
   def User.digest(string)
     cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
