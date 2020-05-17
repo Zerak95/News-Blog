@@ -15,6 +15,7 @@ $gray-medium-light: #eaeaea;
 
 body {
   padding-top: 60px;
+  background-color: #EEEEEE;
 }
 
 section {
@@ -197,3 +198,29 @@ input {
     color: $state-danger-text;
   }
 }
+
+/* temp-test */
+
+.temp-test{
+  background-color: white;
+  height: 250px;
+  margin-top: 30px;
+  padding-top: 15px;
+}
+
+.box-name{
+  height: 25px;
+  background-color: #FAFAFA;
+  // overflow: hidden;
+  div, p{
+    float: left;
+  }
+}
+
+.red-dash{
+  height: 25px;
+  width: 5px;
+  background-color: red;
+  margin-right: 20px;
+}
+/* temp-test */
