@@ -235,13 +235,50 @@ input {
     background-color: white;
     width: 33%;
     text-align: center;
-    border: 2px solid #FAFAFA;
+    border: 1px solid #EEEEEE;
     padding-top: 7px;
   }
 }
 
 .post-bar{
   margin-bottom: 15px;
+}
+
+#new-post-btn{
+  background-color: #0D9687;
+  font-size: small;
+  // text-align: center;
+  height: 35px;
+  // padding-bottom: 10px;
+}
+
+.blog-post{
+  background-color: white;
+  padding: 12.5px 15px;
+  height: 70px;
+  border: 2px solid #EEEEEE
+
+  // div{
+  //   float: left;
+  // }
+}
+
+.user-avatar{
+  height: 45px;
+  width: 45px;
+  background-color: red;
+}
+
+.blog-post-title{
+  padding-left: 8px;
+}
+
+.blog-post-info{
+  height: 22.5px;
+//   background-color: blue;
+  div, h5{
+    height: 22.5px;
+  }
 }
 
 /* temp-test */
