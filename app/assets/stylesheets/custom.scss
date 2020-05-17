@@ -199,13 +199,17 @@ input {
   }
 }
 
-/* temp-test */
+/* right-side-bar */
 
-.temp-test{
+.right-side-bar{
   background-color: white;
   height: 250px;
   margin-top: 30px;
   padding-top: 15px;
+}
+
+.recent-members-box{
+  height: 300px;
 }
 
 .box-name{
@@ -263,7 +267,7 @@ input {
   // }
 }
 
-.user-avatar{
+.news-user-avatar{
   height: 45px;
   width: 45px;
   background-color: red;
@@ -286,4 +290,21 @@ input {
   }
 }
 
-/* temp-test */
+.recent-12-users{
+  padding: 0;
+  height: 240px;
+}
+
+.recent-user-avatar{
+  width: 19%;
+  height: 27.3%;
+  margin: 3%;
+  float: left;
+
+  div{
+    width: 23.5%;
+    margin: 0;
+  }
+}
+
+/* right-side-bar */

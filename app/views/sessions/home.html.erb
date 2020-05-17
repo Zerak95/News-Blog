@@ -24,7 +24,7 @@
 
           <div class="blog-post">
           
-            <div class="col-md-1 user-avatar"></div>
+            <div class="col-md-1 news-user-avatar"></div>
 
             <div class="col-md-11">
 
@@ -57,35 +57,58 @@
     </p>
   </div>
   <div class="col-md-3">
+
     <div class="row">
-      <div class="temp-test">
+
+      <div class="right-side-bar recent-members-box">
+
         <div class="box-name">
           <div class="red-dash"></div>
           <p>Recent Members</p>
         </div>
+
+        <div class="recent-12-users col-md-12">
+            <% 12.times do %>
+              <div class="recent-user-avatar">
+                <div class="row">
+                  <%= gravatar_for current_user, size: 50 %>
+                </div>
+                <div class="row">
+                  <%= link_to current_user.name, current_user %>
+                </div>
+              </div>
+            <% end %>
+          
+        </div>
+        
       </div>
+
     </div>
 
     <div class="row">
-      <div class="temp-test">
+
+      <div class="right-side-bar">
         <div class="box-name">
           <div class="red-dash"></div>
           <p>Topic</p>
         </div>
       </div>
+
     </div>
 
     <div class="row">
-      <div class="temp-test">
+
+      <div class="right-side-bar">
         <div class="box-name">
           <div class="red-dash"></div>
           <p>Post</p>
         </div>
       </div>
+
     </div>
 
     <div class="row">
-      <div class="temp-test">
+      <div class="right-side-bar">
         <div class="box-name">
           <div class="red-dash"></div>
           <p>Link</p>
