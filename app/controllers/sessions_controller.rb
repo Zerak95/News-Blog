@@ -1,5 +1,6 @@
 class SessionsController < ApplicationController
-  
+ 
+  ##TODO: this might need be moved into news
   def new
   end
 
