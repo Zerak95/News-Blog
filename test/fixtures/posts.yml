@@ -1,11 +1,38 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  content: MyText
-  user: one
-  topic: one
+# one:
+#   content: MyText
+#   user: one
+#   topic: one
+#   title: "random info"
 
-two:
-  content: MyText
-  user: two
-  topic: two
+# two:
+#   content: MyText
+#   user: two
+#   topic: two
+#   title: "random info"
+
+
+orange:
+  content: "I just ate an orange!"
+  created_at: <%= 10.minutes.ago %>
+  topic: one
+  title: "random info"
+
+tau_manifesto:
+  content: "Check out the @tauday site by @mhartl: http://tauday.com"
+  created_at: <%= 3.years.ago %>
+  topic: one
+  title: "random info"
+
+cat_video:
+  content: "Sad cats are sad: http://youtu.be/PKffm2uI4dk"
+  created_at: <%= 2.hours.ago %>
+  topic: one
+  title: "random info"
+
+most_recent:
+  content: "Writing a short test"
+  created_at: <%= Time.zone.now %>
+  topic: one
+  title: "random info"
