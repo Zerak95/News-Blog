@@ -24,7 +24,7 @@
 
           <div class="blog-post">
           
-            <div class="col-md-1 news-user-avatar"></div>
+            <div class="col-md-1 news-user-avatar"><%= gravatar_for active_users.first, size: 45 %></div>
 
             <div class="col-md-11">
 
@@ -38,9 +38,10 @@
                 <div class="col-md-12">
 
                   <h6 class="col-md-2"><%= link_to "author name", '#' %></h6>
-                  <h6 class="col-md-2"><%= link_to "00/00/2020", '#' %></h6>
+                  <h6 class="col-md-2">00/00/2020</h6>
                   <h6 class="col-md-2"><%= link_to "blog topic", '#' %></h6>
-                  <h6 class="col-md-3 col-md-offset-3"><%= link_to "view count  topic count", '#' %></h6>
+                  <h6 class="col-md-2 col-md-offset-2"><%= link_to "view count", '#' %></h6>
+                  <h6 class="col-md-2"><%= link_to "topic count", '#' %></h6>
 
                 </div>
               </div>
@@ -112,6 +113,30 @@
         <div class="box-name">
           <div class="red-dash"></div>
           <p>Link</p>
+        </div>
+
+        <div class="active-links col-md-12">
+
+          <a href="https://www.rmit.edu.au/">
+            <div class="link-icon">RMIT</div>
+          </a>
+
+          <a href="https://rubyonrails.org/">
+            <div class="link-icon">Rails</div>
+          </a>
+
+          <a href="https://www.youtube.com/">
+            <div class="link-icon">YouTube</div>
+          </a>
+
+          <a href="http://www1.rmit.edu.au/courses/051833">
+            <div class="link-icon">RAD</div>
+          </a>
+
+          <a href="https://www.ruby-lang.org/en/">
+            <div class="link-icon">Ruby</div>
+          </a>
+
         </div>
       </div>
     </div>

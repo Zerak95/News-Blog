@@ -307,4 +307,27 @@ input {
   }
 }
 
+.active-links{
+  // padding: 0;
+  // height: 240px;
+}
+
+.link-icon{
+  border-radius: 25px;
+  width: 27.3%;
+  height: 27.3%;
+  margin: 3%;
+  border: 1px solid #CACACA;
+  text-align: center;
+  float: left;
+  color: black;
+}
+
+.link-icon:hover{
+  border-color: orange;
+  color: orange;
+  text-decoration: none;
+}
+
+
 /* right-side-bar */
