@@ -6,8 +6,8 @@ class PostTest < ActiveSupport::TestCase
     @topic = topics(:one)
     
     # This code is not idiomatically correct.
-    @post = Post.new(content: "Lorem ipsum", user_id: @user.id,
-                       topic_id: @topic.id, title: "Lorem ipsum")
+    @post = @user.posts.build(content: "Lorem ipsum", topic_id: @topic.id,
+                                       title: "Lorem ipsum")
   end
 
   test "should be valid" do
@@ -47,5 +47,9 @@ class PostTest < ActiveSupport::TestCase
   test "content should be at most 1000 characters" do
     @post.content = "a" * 1001
     assert_not @post.valid?
+  end
+
+  test "order should be most recent first" do
+    assert_equal posts(:most_recent), Post.first
   end
 end
