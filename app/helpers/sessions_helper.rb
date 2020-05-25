@@ -2,6 +2,7 @@ module SessionsHelper
 
   # Logs in the given user.
   def log_in(user)
+    user.update_attribute(:last_active, DateTime.now)
     session[:user_id] = user.id
   end
 
@@ -21,5 +22,10 @@ module SessionsHelper
   def log_out
     session.delete(:user_id)
     @current_user = nil
+  end
+
+  # Returns the 12 most recent active users.
+  def active_users
+    @active_user = User.order('last_active DESC').limit(11)
   end
 end
