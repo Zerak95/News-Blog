@@ -22,10 +22,5 @@ module SessionsHelper
   def log_out
     session.delete(:user_id)
     @current_user = nil
-  end
-
-  # Returns the 12 most recent active users.
-  def active_users
-    @active_user = User.order('last_active DESC').limit(12)
-  end
+  end  
 end
