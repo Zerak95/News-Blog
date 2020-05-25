@@ -26,6 +26,6 @@ module SessionsHelper
 
   # Returns the 12 most recent active users.
   def active_users
-    @active_user = User.order('last_active DESC').limit(11)
+    @active_user = User.order('last_active DESC').limit(12)
   end
 end

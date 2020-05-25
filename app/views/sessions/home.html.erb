@@ -68,13 +68,13 @@
         </div>
 
         <div class="recent-12-users col-md-12">
-            <% 12.times do %>
+            <% active_users.each do |user| %>
               <div class="recent-user-avatar">
                 <div class="row">
-                  <%= gravatar_for current_user, size: 50 %>
+                  <%= gravatar_for user, size: 50 %>
                 </div>
                 <div class="row">
-                  <%= link_to current_user.name, current_user %>
+                  <%= link_to user.name, user %>
                 </div>
               </div>
             <% end %>
