@@ -1,0 +1,145 @@
+<% provide(:title, "home") %>
+<div class="row">
+  <div class="col-md-9 main-area">
+    <div class="row post-bar">
+      <div class="col-md-5 the-tabs">
+          <div class="post-tab">Recent Posts</div>
+          <div class="post-tab">Selected Posts</div>
+          <div class="post-tab">My Setting</div>
+      </div>
+      <div class="col-md-5">
+        <form class="form-inline d-flex justify-content-center md-form form-sm">
+          <input class="form-control form-control-sm mr-3 w-75" type="text" placeholder="Search"
+            aria-label="Search">
+          <i class="fas fa-search" aria-hidden="true"></i>
+        </form>
+      </div>
+      <div class="col-md-2">
+        <%= link_to "New Post", new_post_url,class: "btn btn-sm new-post-btn" %>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12 ">
+
+          <div class="blog-post">
+          
+            <div class="col-md-1 news-user-avatar"><%= gravatar_for active_users.first, size: 45 %></div>
+
+            <div class="col-md-11">
+
+              <div class="row blog-post-info">
+                <div class="col-md-12">
+                  <h5 class="blog-post-title"><%= link_to "This is a generic blog post about stuff", '#', class: 'blog-post-title' %></h5>
+                </div>
+              </div>
+
+              <div class="row blog-post-info">
+                <div class="col-md-12">
+
+                  <h6 class="col-md-2"><%= link_to "author name", '#' %></h6>
+                  <h6 class="col-md-2">00/00/2020</h6>
+                  <h6 class="col-md-2"><%= link_to "blog topic", '#' %></h6>
+                  <h6 class="col-md-2 col-md-offset-2"><%= link_to "view count", '#' %></h6>
+                  <h6 class="col-md-2"><%= link_to "topic count", '#' %></h6>
+
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+
+      </div>
+    </div>
+
+    <p>
+    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+    </p>
+  </div>
+  <div class="col-md-3">
+
+    <div class="row">
+
+      <div class="right-side-bar recent-members-box">
+
+        <div class="box-name">
+          <div class="red-dash"></div>
+          <p>Recent Members</p>
+        </div>
+
+        <div class="recent-12-users col-md-12">
+            <% active_users.each do |user| %>
+              <div class="recent-user-avatar">
+                <div class="row">
+                  <%= gravatar_for user, size: 50 %>
+                </div>
+                <div class="row">
+                  <%= link_to user.name, user %>
+                </div>
+              </div>
+            <% end %>
+          
+        </div>
+        
+      </div>
+
+    </div>
+
+    <div class="row">
+
+      <div class="right-side-bar">
+        <div class="box-name">
+          <div class="red-dash"></div>
+          <p>Topic</p>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="row">
+
+      <div class="right-side-bar">
+        <div class="box-name">
+          <div class="red-dash"></div>
+          <p>Post</p>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="row">
+      <div class="right-side-bar">
+        <div class="box-name">
+          <div class="red-dash"></div>
+          <p>Link</p>
+        </div>
+
+        <div class="active-links col-md-12">
+
+          <a href="https://www.rmit.edu.au/">
+            <div class="link-icon">RMIT</div>
+          </a>
+
+          <a href="https://rubyonrails.org/">
+            <div class="link-icon">Rails</div>
+          </a>
+
+          <a href="https://www.youtube.com/">
+            <div class="link-icon">YouTube</div>
+          </a>
+
+          <a href="http://www1.rmit.edu.au/courses/051833">
+            <div class="link-icon">RAD</div>
+          </a>
+
+          <a href="https://www.ruby-lang.org/en/">
+            <div class="link-icon">Ruby</div>
+          </a>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
