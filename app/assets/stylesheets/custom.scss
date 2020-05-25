@@ -248,9 +248,10 @@ input {
   margin-bottom: 15px;
 }
 
-#new-post-btn{
+.new-post-btn{
   background-color: #0D9687;
   font-size: small;
+  color: white;
   // text-align: center;
   height: 35px;
   // padding-bottom: 10px;
@@ -331,3 +332,50 @@ input {
 
 
 /* right-side-bar */
+
+/* post-page */
+
+.post-bar{
+  padding: 0;
+  // overflow: hidden;
+  div, p{
+    float: left;
+  }
+}
+
+.post-bar-grey{
+  height: 25px;
+  background-color: rgb(172, 172, 172);
+}
+
+.green-dash{
+  height: 25px;
+  width: 5px;
+  background-color: #0D9687;
+  margin-right: 20px;
+}
+
+.post-from{
+  padding: 0;
+}
+
+.post-form-items{
+  border: 1px solid lightgrey;
+  height: 30px;
+  padding: 0;
+  select, div{
+    height: 30px;
+  }
+}
+
+.post-from-title{
+padding: 4px;
+}
+
+.post-from-text{
+  height: 400px;
+}
+
+
+
+/* post-page */
