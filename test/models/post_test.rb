@@ -5,7 +5,7 @@ class PostTest < ActiveSupport::TestCase
     @user = users(:zerak)
     @topic = topics(:one)
     
-    # This code is not idiomatically correct.
+    #TODO: This code is not idiomatically correct.
     @post = @user.posts.build(content: "Lorem ipsum", topic_id: @topic.id,
                                        title: "Lorem ipsum")
   end
