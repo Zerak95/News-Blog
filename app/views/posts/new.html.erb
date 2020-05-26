@@ -12,12 +12,12 @@
     
     <div class="row post-from">
         <div class="col-md-12">
-            <%= form_for(@post, url: new_post_url) do |f| %>
+            <%= form_for(@post) do |f| %>
 
             <div class="row ">
                 <div class="post-form-items col-md-5">
                     <span class="col-md-2 "><%= f.label :topic %></span>
-                    <span class="col-md-10 post-from"><%= select(:post, :topic, post_topics)%></span>
+                    <span class="col-md-10 post-from"><%= select(:post, :topic_id, post_topics)%></span>
                     
                 </div>
             </div>
