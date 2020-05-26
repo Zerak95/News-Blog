@@ -7,3 +7,7 @@ one:
 two:
   name: MyString
   view_count: 1
+
+tree:
+  name: "News"
+  view_count: 1
