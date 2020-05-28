@@ -14,4 +14,8 @@ module PostsHelper
     def no_post_topic
         @topic = Topic.where(name:"News").first.id
     end
+
+    def top_viewed_posts
+        @post = Post.order('view_count').limit(5)
+      end
 end
