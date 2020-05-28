@@ -100,25 +100,15 @@
 
         <div class="active-links col-md-12">
 
-          <a href="https://www.rmit.edu.au/">
-            <div class="link-icon">RMIT</div>
-          </a>
+          <% post_topics[1..-1].each do |topic| %>
+              <div class="link-icon" id="topic-<%= topic[0] %>"><%= topic[0] %></div>
+          <% end %>
 
-          <a href="https://rubyonrails.org/">
-            <div class="link-icon">Rails</div>
-          </a>
-
-          <a href="https://www.youtube.com/">
-            <div class="link-icon">YouTube</div>
-          </a>
-
-          <a href="http://www1.rmit.edu.au/courses/051833">
-            <div class="link-icon">RAD</div>
-          </a>
-
-          <a href="https://www.ruby-lang.org/en/">
-            <div class="link-icon">Ruby</div>
-          </a>
+          <label class="switch link-icon">
+            <input type="checkbox">
+            <span class="slider">test</span>
+          </label>
+          
 
         </div>
 
@@ -134,6 +124,17 @@
           <div class="red-dash"></div>
           <p>Post</p>
         </div>
+
+        <% top_viewed_posts.each do |post| %>
+          <div class="row">
+            <div class="col-md-12">
+              <span class="col-md-8"><%= post.title[0..25] %> 
+              <%= "..." if post.title.length > 25 %></span>
+              
+               <span class="col-md-4">view: <%= post.view_count %></span> 
+            </div>
+          </div>
+        <% end %>
       </div>
 
     </div>
@@ -173,3 +174,7 @@
   </div>
 </div>
 
+<script>
+let topicIcons = document.querySelectorAll(".link-icon");
+topicIcons[0].classList.toggle("link-icon-selected");
+</script>
