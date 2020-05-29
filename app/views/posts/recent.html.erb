@@ -139,8 +139,8 @@
         <% top_viewed_posts.each do |post| %>
           <div class="row">
             <div class="col-md-12">
-              <span class="col-md-8"><%= post.title[0..25] %> 
-              <%= "..." if post.title.length > 25 %></span>
+              <span class="col-md-8"><%= post.title[0..22] %> 
+              <%= "..." if post.title.length > 22 %></span>
               
                <span class="col-md-4">view: <%= post.view_count %></span> 
             </div>
