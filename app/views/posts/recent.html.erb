@@ -3,8 +3,8 @@
   <div class="col-md-9 main-area">
     <div class="row post-bar">
       <div class="col-md-5 the-tabs">
-          <div class="post-tab">Recent Posts</div>
-          <div class="post-tab">Selected Posts</div>
+          <div class="post-tab selected" id="recent-posts-btn">Recent Posts</div>
+          <div class="post-tab" id="selected-posts-btn">Selected Posts</div>
           <div class="post-tab">My Setting</div>
       </div>
       <div class="col-md-5">
@@ -52,14 +52,27 @@
 
       </div>
     </div>
+    <div class="row" id="recent-posts">
+      <% @posts.each do |post| %>
+        <div class="row">
+          <%= render post %>
+        </div>
+      <% end %>
+    </div>
 
-    <% @posts.each do |post| %>
-    <%= render post %>
-    <% end %>
 
-    <p>
-    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-    </p>
+    <div class="row hide" id="selected-posts">
+      <% @posts.each do |post| %>
+        <% if post.topic.name != "News" %>
+          <div class="row hide topic-<%= post.topic.name %>">
+            <%= render post %>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+
+    
+
   </div>
   <div class="col-md-3">
 
@@ -103,11 +116,6 @@
           <% post_topics[1..-1].each do |topic| %>
               <div class="link-icon" id="topic-<%= topic[0] %>"><%= topic[0] %></div>
           <% end %>
-
-          <label class="switch link-icon">
-            <input type="checkbox">
-            <span class="slider">test</span>
-          </label>
           
 
         </div>
@@ -176,5 +184,62 @@
 
 <script>
 let topicIcons = document.querySelectorAll(".link-icon");
-topicIcons[0].classList.toggle("link-icon-selected");
+let recentPostsBtn = document.querySelectorAll("#recent-posts-btn");
+let selectedPostsBtn = document.querySelectorAll("#selected-posts-btn");
+let recentPosts = document.querySelectorAll("#recent-posts");
+let selectedPosts = document.querySelectorAll("#selected-posts");
+
+
+// topicIcons[0].addEventListener("click", event =>(selectedElement(topicIcons[0])))
+
+topicIcons.forEach(topic => {
+  topic.addEventListener("click", event => {
+    selectedElement(topic);
+    selectedTopic(topic);
+    singlePostToggle(topic);
+    })
+});
+
+
+
+// recentPostsBtn[0].addEventListener("click", event => {
+//   selectedElement(recentPostsBtn[0]);
+// });
+
+recentPostsBtn[0].addEventListener("click", event => {
+  selectedPostsBtn[0].classList.remove("selected");
+  recentPostsBtn[0].classList.add("selected");
+  selectedPost();
+});
+
+selectedPostsBtn[0].addEventListener("click", event => {
+  recentPostsBtn[0].classList.remove("selected");
+  selectedPostsBtn[0].classList.add("selected");
+  selectedPost();
+});
+
+
+function selectedElement(element) {
+    element.classList.toggle("selected");
+}
+
+
+//TODO: might not need this
+function selectedTopic(element) {
+    element.classList.toggle("selected-topic");
+}
+
+function selectedPost() {
+  recentPosts[0].classList.toggle("hide");
+  selectedPosts[0].classList.toggle("hide");
+}
+
+function singlePostToggle(element) {
+  let topicString = ".topic-" + element.innerText;
+  let topicPosts = document.querySelectorAll(topicString);
+  topicPosts.forEach(post => {
+    post.classList.toggle("hide");
+  });
+}
+
 </script>

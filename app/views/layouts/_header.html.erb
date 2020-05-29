@@ -34,7 +34,11 @@
       </ul>
 
       <div class="nav navbar-nav navbar-right">
-        <p class="btn btn-lg btn-primary">Gravatar</p>
+        <% if logged_in? %>
+          <%= link_to (gravatar_for current_user, size: 45), logout_path, method: :delete %>
+        <% else %>
+          <%= link_to (gravatar_no_user size: 45), login_path %>
+        <% end %>
       </div>
     </nav>
   </div>

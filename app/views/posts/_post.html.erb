@@ -1,34 +1,33 @@
-<div class="row">
-      <div class="col-md-12 ">
 
-          <div class="blog-post">
-          
-            <div class="col-md-1 news-user-avatar"><%= link_to (gravatar_for post.user, size: 45), post.user %></div>
+<div class="col-md-12 ">
 
-            <div class="col-md-11">
+    <div class="blog-post">
+    
+        <div class="col-md-1 news-user-avatar"><%= link_to (gravatar_for post.user, size: 45), post.user %></div>
 
-              <div class="row blog-post-info">
-                <div class="col-md-12">
-                  <h5 class="blog-post-title"><%= link_to post.title, post, class: 'blog-post-title' %></h5>
-                </div>
-              </div>
+        <div class="col-md-11">
 
-              <div class="row blog-post-info">
-                <div class="col-md-12">
+        <div class="row blog-post-info">
+        <div class="col-md-12">
+            <h5 class="blog-post-title"><%= link_to post.title, post, class: 'blog-post-title' %></h5>
+        </div>
+        </div>
 
-                  <h6 class="col-md-2"><%= link_to post.user.name, post.user %></h6>
-                  <h6 class="col-md-3"><%= post.user.created_at %></h6>
-                  <h6 class="col-md-2"><%= post.topic.name %></h6>
-                  <h6 class="col-md-2 col-md-offset-1"><%= link_to "comment count", '#' %></h6>
-                  <h6 class="col-md-2">view_count: <%= post.view_count%></h6>
-                  
+        <div class="row blog-post-info">
+        <div class="col-md-12">
 
-                </div>
-              </div>
+            <h6 class="col-md-2"><%= link_to post.user.name, post.user %></h6>
+            <h6 class="col-md-3"><%= post.user.created_at.strftime("%Y-%m-%d %H:%M:%S") %></h6>
+            <h6 class="col-md-2"><%= post.topic.name %></h6>
+            <h6 class="col-md-2 col-md-offset-1"><%= link_to "comment count", '#' %></h6>
+            <h6 class="col-md-2">view_count: <%= post.view_count%></h6>
+            
 
-            </div>
+        </div>
+        </div>
 
-          </div>
-
-      </div>
     </div>
+
+    </div>
+
+</div>
