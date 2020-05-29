@@ -1,0 +1,32 @@
+<div class="row white-background">
+
+  <div class="row">
+    <h3 class="col-md-12"><%= @post.title %></h3>
+  </div>
+
+  <div class="row">
+    <span class="col-md-1 white-grey">
+      <%= @post.topic.name %>
+    </span>
+
+    <h6 class="col-md-2 col-md-offset-7"><%= link_to "comment count", '#' %></h6>
+    <h6 class="col-md-2">view_count: <%= @post.view_count%></h6>
+
+  </div>
+
+  <div class="row">
+    <div class="col-md-1 news-user-avatar"><%= link_to (gravatar_for @post.user, size: 45), @post.user %></div>
+    <h6 class="col-md-1"><%= link_to @post.user.name, @post.user %></h6>
+    <h6 class="col-md-2"><%= @post.created_at.strftime("%Y-%m-%d %H:%M:%S") %></h6>
+  </div>
+
+  <div class="row">
+    <p class="col-md-12"><%= @post.content%></p>
+  </div>
+
+  <div class="row">
+    <h4 class="col-md-12">Comments</h4>
+  </div>
+  <hr>
+  
+</div>
