@@ -199,7 +199,7 @@ input {
   }
 }
 
-/* right-side-bar */
+/* post page */
 
 .right-side-bar{
   background-color: white;
@@ -330,10 +330,23 @@ input {
   text-decoration: none;
 }
 
+.selected{
+  border-color: orange;
+  color: orange;
+  text-decoration: none;
+}
 
-/* right-side-bar */
+#recent-posts, #selected-posts{
+  margin: 0;
+}
 
-/* post-page */
+.hide{
+  display: none;
+}
+
+/* post page */
+
+/* new-post-page */
 
 .post-bar{
   padding: 0;
@@ -378,4 +391,62 @@ padding: 4px;
 
 
 
-/* post-page */
+/* new-post-page */
+
+/* user-page */
+.white-background{
+  background-color: white;
+}
+#user-profile-top{
+  height: 300px;
+}
+
+.center{
+  margin: auto;
+  width: 50%;
+  padding: 10px;
+}
+
+.center > img{
+  float: none;
+}
+
+.user-info-section{
+  height: 450px;
+}
+
+/* user-page */
+
+/* not my code */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.switch input { 
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  top: 20%;
+  left: 0;
+  right: 0;
+  // bottom: 0;
+  // background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+
+
+input:checked + .slider {
+  border-color: orange;
+  color: orange;
+}
+
+/* not my code */

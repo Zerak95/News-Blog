@@ -13,7 +13,7 @@
     </div>
 
     <div class="row">
-      <h6>last active: <%= @user.last_active %></h6>
+      <h6>last active: <%= @user.last_active.strftime("%Y-%m-%d") %></h6>
     </div>
 
     <div class="row">
@@ -46,10 +46,10 @@
       <% @user.posts.each do |post| %>
         <div class="row">
           <div class="col-md-12">
-            <span class="col-md-7"><%= post.title[0..25] %> 
+            <span class="col-md-9"><%= post.title[0..25] %> 
             <%= "..." if post.title.length > 25 %></span>
             
-              <span class="col-md-5"><%= post.created_at %></span> 
+              <span class="col-md-3"><%= post.created_at.strftime("%Y-%m-%d")%></span> 
           </div>
         </div>
       <% end %>
