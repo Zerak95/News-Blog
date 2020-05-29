@@ -7,8 +7,14 @@ module UsersHelper
     image_tag(gravatar_url, alt: user.name, class: "gravatar")
   end
 
+  # Returns standard Gravatar.
+  def gravatar_no_user( size: 80)
+    gravatar_url = "https://secure.gravatar.com/avatar/?s=#{size}"
+    image_tag(gravatar_url, alt: "no user", class: "gravatar")
+  end
+
   # Returns the 12 most recent active users.
   def active_users
-    @active_user = User.order('last_active DESC').limit(12)
+    @active_users = User.order('last_active DESC').limit(12)
   end
 end
