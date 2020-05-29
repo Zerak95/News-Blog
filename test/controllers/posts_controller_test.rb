@@ -21,4 +21,9 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
     end
     assert_redirected_to login_url
   end
+
+  test "should diplay the show page of the post" do
+    get new_post_url
+    assert_response :success
+  end
 end
