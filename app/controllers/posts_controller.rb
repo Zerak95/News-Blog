@@ -1,6 +1,14 @@
 class PostsController < ApplicationController
 
+    def show
+        @post = Post.find(params[:id])
+        @post.view_count += 1
+        @post.save
+    end
+
+
     def recent
+        ###TODO: delete non needed code
         # beginning_of_month = Date.today.beginning_of_month
         # end_of_month = beginning_of_month.end_of_month
         # @posts = Post.where(created_at: beginning_of_month..end_of_month)
