@@ -24,7 +24,7 @@
 
           <div class="blog-post">
           
-            <div class="col-md-1 news-user-avatar"><%= gravatar_for active_users.first, size: 45 %></div>
+            <div class="col-md-1 news-user-avatar"><%= gravatar_no_user size: 45 %></div>
 
             <div class="col-md-11">
 
@@ -65,7 +65,7 @@
 
 
     <div class="row hide" id="selected-posts">
-      <% if @posts.first @posts.each do |post| %>
+      <% @posts.each do |post| %>
         <% if post.topic.name != "News" %>
           <div class="row hide topic-<%= post.topic.name %>">
             <%= render post %>
@@ -89,7 +89,7 @@
         </div>
 
         <div class="recent-12-users col-md-12">
-            <% if active_users.first active_users.each do |user| %>
+            <% active_users.each do |user| %>
               <div class="recent-user-avatar">
                 <div class="row">
                   <%= link_to (gravatar_for user, size: 45), user %>
@@ -116,7 +116,7 @@
 
         <div class="active-links col-md-12">
 
-          <% if post_topics.first post_topics[1..-1].each do |topic| %>
+          <% post_topics[1..-1].each do |topic| %>
               <div class="link-icon" id="topic-<%= topic[0] %>"><%= topic[0] %></div>
           <% end %>
           
@@ -136,7 +136,7 @@
           <p>Post</p>
         </div>
 
-        <% if top_viewed_posts top_viewed_posts.each do |post| %>
+        <% top_viewed_posts.each do |post| %>
           <div class="row">
             <div class="col-md-12">
               <span class="col-md-8"><%= post.title[0..22] %> 

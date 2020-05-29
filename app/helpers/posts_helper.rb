@@ -12,7 +12,9 @@ module PostsHelper
     end
 
     def no_post_topic
-        @topic = Topic.where(name:"News").first.id
+        if Topic.where(name:"News").first
+          @topic = Topic.where(name:"News").first.id
+        end
     end
 
     def top_viewed_posts
