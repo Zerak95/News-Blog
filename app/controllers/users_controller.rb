@@ -10,6 +10,7 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
+    @user.last_active = Date.today
     if @user.save
       log_in @user
       flash[:success] = "Welcome to the Sample App!"
