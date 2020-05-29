@@ -15,6 +15,8 @@ module UsersHelper
 
   # Returns the 12 most recent active users.
   def active_users
-    @active_users = User.order('last_active DESC').limit(12)
+    if User.first
+      @active_users = User.order('last_active DESC').limit(12)
+    end
   end
 end
