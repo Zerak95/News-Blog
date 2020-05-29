@@ -6,10 +6,13 @@ class User < ApplicationRecord
   validates :email, presence: true, length: { maximum: 255 },
                       format: { with: VALID_EMAIL_REGEX },
                       uniqueness: { case_sensitive: false }
+
+  VALID_PASSWORD_REGEX = /\A[0-9a-zA-Z]{8,20}$\z/
   has_secure_password
-  validates :password, presence: true, length: { minimum: 6 }
-  VALID_PHONE_NUMBER_REGEX = /\A^[0-9]{10,13}$\z/
-  validates :phone_number, presence: true, length: { maximum: 13 },
+  validates :password, presence: true, length: { minimum: 8, maximum: 20 },
+                        format: { with: VALID_PASSWORD_REGEX }
+  VALID_PHONE_NUMBER_REGEX = /\A[0-9]{10,13}$\z/
+  validates :phone_number, presence: true, length: { minimum: 10, maximum: 13 },
                             format: { with: VALID_PHONE_NUMBER_REGEX }
 
   def User.digest(string)

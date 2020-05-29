@@ -5,7 +5,7 @@ class UserTest < ActiveSupport::TestCase
   def setup
     @user = User.new(name: "Example User", email: "user@example.com",
                       phone_number: "1234567890",
-                      password: "foobar", password_confirmation: "foobar")
+                      password: "foobar78", password_confirmation: "foobar78")
   end
 
   test "should be valid" do
@@ -85,7 +85,17 @@ class UserTest < ActiveSupport::TestCase
   end
 
   test "password should have a minimum length" do
-    @user.password = @user.password_confirmation = "a" * 5
+    @user.password = @user.password_confirmation = "a" * 7
+    assert_not @user.valid?
+  end
+
+  test "password should have a maximum length" do
+    @user.password = @user.password_confirmation = "a" * 21
+    assert_not @user.valid?
+  end
+
+  test "password should have not contain empty space" do
+    @user.password = @user.password_confirmation = "a  wef" * 3
     assert_not @user.valid?
   end
 end
