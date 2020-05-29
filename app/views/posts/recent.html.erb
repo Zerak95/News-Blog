@@ -52,11 +52,14 @@
 
       </div>
     </div>
+    
     <div class="row" id="recent-posts">
       <% @posts.each do |post| %>
-        <div class="row">
-          <%= render post %>
-        </div>
+        <% if(post.created_at > Date.today-30.days) %>
+          <div class="row">
+            <%= render post %>
+          </div>
+        <% end %>
       <% end %>
     </div>
 
