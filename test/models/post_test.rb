@@ -20,7 +20,7 @@ class PostTest < ActiveSupport::TestCase
   end
 
   test "title should not be too long" do
-    @post.title = "a" * 51
+    @post.title = "a" * 101
     assert_not @post.valid?
   end
 
@@ -45,7 +45,7 @@ class PostTest < ActiveSupport::TestCase
   end
 
   test "content should be at most 1000 characters" do
-    @post.content = "a" * 1001
+    @post.content = "a" * 2001
     assert_not @post.valid?
   end
 

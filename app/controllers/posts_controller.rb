@@ -3,6 +3,12 @@ class PostsController < ApplicationController
     def show
         @post = Post.find(params[:id])
         @post.view_count += 1
+        ###TODO: might not need the if statment
+        if @post.topic != "News"
+            @topic = @post.topic
+            @topic.view_count += 1
+            @topic.save
+        end
         @post.save
     end
 
