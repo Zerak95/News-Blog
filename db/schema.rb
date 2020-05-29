@@ -43,7 +43,7 @@ ActiveRecord::Schema.define(version: 2020_05_25_132849) do
     t.datetime "updated_at", null: false
     t.string "password_digest"
     t.string "phone_number"
-    t.datetime "last_active", default: "2020-05-24 23:28:57", null: false
+    t.datetime "last_active", default: -> { "now()" }, null: false
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
