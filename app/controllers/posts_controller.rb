@@ -16,7 +16,7 @@ class PostsController < ApplicationController
     end
 
 
-    def recent
+    def index
         ###TODO: delete non needed code
         # beginning_of_month = Date.today.beginning_of_month
         # end_of_month = beginning_of_month.end_of_month

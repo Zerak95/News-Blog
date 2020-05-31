@@ -4,13 +4,13 @@ Rails.application.routes.draw do
   # root 'application#hello'
   # post '/signup',  to: 'users#create'
 
-  root   'posts#recent'
+  root   'posts#index'
   get    '/signup' => 'users#new'
   post   '/signup' => 'users#create'
   get    '/login'  => 'sessions#new'
   post   '/login'  => 'sessions#create'
   delete '/logout' => 'sessions#destroy'
   resources :users
-  resources :posts, only: [:new, :create, :destroy, :show]
+  resources :posts, only: [:new, :create, :index, :show]
   resources :comments, only: [:create]
 end

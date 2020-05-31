@@ -19,39 +19,6 @@
       </div>
     </div>
 
-    <div class="row">
-      <div class="col-md-12 ">
-
-          <div class="blog-post">
-          
-            <div class="col-md-1 news-user-avatar"><%= gravatar_no_user size: 45 %></div>
-
-            <div class="col-md-11">
-
-              <div class="row blog-post-info">
-                <div class="col-md-12">
-                  <h5 class="blog-post-title"><%= link_to "This is a generic blog post about stuff", '#', class: 'blog-post-title' %></h5>
-                </div>
-              </div>
-
-              <div class="row blog-post-info">
-                <div class="col-md-12">
-
-                  <h6 class="col-md-2"><%= link_to "author name", '#' %></h6>
-                  <h6 class="col-md-2">00/00/2020</h6>
-                  <h6 class="col-md-2"><%= link_to "blog topic", '#' %></h6>
-                  <h6 class="col-md-2 col-md-offset-2"><%= link_to "view count", '#' %></h6>
-                  <h6 class="col-md-2"><%= link_to "topic count", '#' %></h6>
-
-                </div>
-              </div>
-
-            </div>
-
-          </div>
-
-      </div>
-    </div>
     
     <div class="row" id="recent-posts">
       <% if @posts.first%>
