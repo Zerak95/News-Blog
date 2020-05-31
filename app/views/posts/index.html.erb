@@ -5,7 +5,9 @@
       <div class="col-md-5 the-tabs">
           <div class="post-tab selected" id="recent-posts-btn">Recent Posts</div>
           <div class="post-tab" id="selected-posts-btn">Selected Posts</div>
-          <div class="post-tab"><%= link_to "My Setting", current_user, class: "black-link"%></div>
+          <% if logged_in? %>
+            <div class="post-tab"><%= link_to "My Setting", edit_user_path(current_user), class: "black-link"%></div>
+          <% end %>
       </div>
       <div class="col-md-5">
         <form class="form-inline d-flex justify-content-center md-form form-sm">
@@ -162,14 +164,12 @@
 </div>
 
 <script>
+
 let topicIcons = document.querySelectorAll(".link-icon");
 let recentPostsBtn = document.querySelectorAll("#recent-posts-btn");
 let selectedPostsBtn = document.querySelectorAll("#selected-posts-btn");
 let recentPosts = document.querySelectorAll("#recent-posts");
 let selectedPosts = document.querySelectorAll("#selected-posts");
-
-
-// topicIcons[0].addEventListener("click", event =>(selectedElement(topicIcons[0])))
 
 topicIcons.forEach(topic => {
   topic.addEventListener("click", event => {
@@ -179,11 +179,6 @@ topicIcons.forEach(topic => {
     })
 });
 
-
-
-// recentPostsBtn[0].addEventListener("click", event => {
-//   selectedElement(recentPostsBtn[0]);
-// });
 
 recentPostsBtn[0].addEventListener("click", event => {
   selectedPostsBtn[0].classList.remove("selected");
@@ -203,7 +198,6 @@ function selectedElement(element) {
 }
 
 
-//TODO: might not need this
 function selectedTopic(element) {
     element.classList.toggle("selected-topic");
 }
@@ -219,6 +213,10 @@ function singlePostToggle(element) {
   topicPosts.forEach(post => {
     post.classList.toggle("hide");
   });
+}
+
+window.onerror = function() {
+    location.reload();
 }
 
 </script>

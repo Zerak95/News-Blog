@@ -26,8 +26,6 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
                                          password_confirmation: "password" } }
     end
     follow_redirect!
-    ### cant use the below test without the rails-controller-testing gem
-    # assert_template 'users/show'
     assert is_logged_in?
   end
 end

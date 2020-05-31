@@ -3,7 +3,6 @@ class PostsController < ApplicationController
     def show
         @post = Post.find(params[:id])
         @post.view_count += 1
-        ###TODO: might not need the if statment
         if @post.topic != "News"
             @topic = @post.topic
             @topic.view_count += 1
@@ -17,10 +16,6 @@ class PostsController < ApplicationController
 
 
     def index
-        ###TODO: delete non needed code
-        # beginning_of_month = Date.today.beginning_of_month
-        # end_of_month = beginning_of_month.end_of_month
-        # @posts = Post.where(created_at: beginning_of_month..end_of_month)
         @posts = Post.all
     end
 

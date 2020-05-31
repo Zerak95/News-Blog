@@ -22,15 +22,8 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to login_url
   end
 
-  test "should show post and increase count" do
+  test "should show post" do
     @post = posts(:orange)
-
-    if @post.topic != "News"
-      assert_difference '@post.view_count', 1 do
-        get post_url(@post)
-      end
-    end
-    
     get post_url(@post)
     assert_response :success
   end
