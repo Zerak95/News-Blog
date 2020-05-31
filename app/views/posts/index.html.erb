@@ -5,7 +5,7 @@
       <div class="col-md-5 the-tabs">
           <div class="post-tab selected" id="recent-posts-btn">Recent Posts</div>
           <div class="post-tab" id="selected-posts-btn">Selected Posts</div>
-          <div class="post-tab">My Setting</div>
+          <div class="post-tab"><%= link_to "My Setting", current_user, class: "black-link"%></div>
       </div>
       <div class="col-md-5">
         <form class="form-inline d-flex justify-content-center md-form form-sm">
@@ -70,7 +70,7 @@
                     <%= link_to (gravatar_for user, size: 45), user %>
                   </div>
                   <div class="row">
-                    <%= link_to user.name, user %>
+                    <%= link_to user.name, user, class: "black-link" %>
                   </div>
                 </div>
               <% end %>

@@ -300,6 +300,13 @@ input {
   }
 }
 
+.username:hover{
+  a{
+    color: orange;
+    text-decoration: none;
+  }
+}
+
 .recent-12-users{
   padding: 0;
   height: 240px;
@@ -492,6 +499,11 @@ padding: 4px;
   width: 5px;
   margin-right: 20px;
   float: left;
+}
+
+.black-link{
+  text-decoration: none;
+  color: black;
 }
 
 

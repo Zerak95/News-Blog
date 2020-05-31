@@ -43,15 +43,18 @@
 
     <div class="white-background user-info-section">
       
-      <% @user.posts.each do |post| %>
-        <div class="row">
-          <div class="col-md-12">
-            <span class="col-md-9"><%= post.title[0..25] %> 
-            <%= "..." if post.title.length > 25 %></span>
-            
-              <span class="col-md-3"><%= post.created_at.strftime("%Y-%m-%d")%></span> 
+      <% if @user.posts.first%>
+        <% @user.posts.order('created_at DESC').limit(8).each do |post| %>
+          <div class="row">
+            <div class="col-md-12">
+              <span class="col-md-9"><%= link_to (post.title[0..40]), post %> 
+              <%= "..." if post.title.length > 40 %></span>
+              
+                <span class="col-md-3"><%= post.created_at.strftime("%Y-%m-%d")%></span> 
+            </div>
           </div>
-        </div>
+          <hr>
+        <% end %>
       <% end %>
     
     </div>
@@ -59,7 +62,21 @@
   
   <div class="col-md-6 user-info-section">
     <div class="post-bar-grey"> <%= @user.name %> Recent comments:</div>
-    <div class="white-background user-info-section"></div>
+    <div class="white-background user-info-section">
+      <% if @user.comments.first%>
+        <% @user.comments.order('created_at DESC').limit(8).each do |comment| %>
+          <div class="row">
+            <div class="col-md-12">
+              <span class="col-md-9"><%= link_to (comment.content[0..40]), comment.post %> 
+              <%= "..." if comment.content.length > 40 %></span>
+              
+                <span class="col-md-3"><%= comment.created_at.strftime("%Y-%m-%d")%></span> 
+            </div>
+          </div>
+          <hr>
+        <% end %>
+      <% end %>
+    </div>
   </div>
 
 </div>
