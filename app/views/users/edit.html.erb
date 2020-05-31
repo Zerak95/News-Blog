@@ -1,0 +1,67 @@
+<% provide(:title, "Edit user") %>
+
+<div class="row">
+
+    <div class="col-md-3">
+        <div class="col-md-12 setting-side-bar">
+
+            <div class="row">
+                
+                <div class="setting-side-bar-item">
+                    <div class="setting-side-dash"></div>
+                    My Profile
+                </div>
+            </div>
+
+            <div class="row">
+                
+                <div class="setting-side-bar-item">
+                    <div class="setting-side-dash"></div>
+                    My Posts
+                </div>
+            </div>
+
+            <div class="row">
+                
+                <div class="setting-side-bar-item">
+                    <div class="setting-side-dash"></div>
+                    My Comments
+                </div>
+            </div>
+
+            <div class="row">
+                
+                <div class="setting-side-bar-item">
+                    <div class="setting-side-dash"></div>
+                    Comments to ME
+                </div>
+            </div>
+
+            <div class="row">
+                
+                <div class="setting-side-bar-item">
+                    <div class="setting-side-dash"></div>
+                    Setting
+                </div>
+            </div>
+        
+        </div>
+    </div>
+
+
+  <div class="col-md-9">
+
+    <div class="row">
+      <h3>You can modify your contact details below</h3>
+    </div>
+
+    <br>
+
+    <div class="row">
+      <%= render 'edit_form' %>
+    </div>
+    
+  
+  </div>
+
+</div>

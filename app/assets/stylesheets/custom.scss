@@ -11,6 +11,14 @@ $gray-medium-light: #eaeaea;
   box-sizing:         border-box;
 }
 
+//TODO:
+// .row,.col-md-1,.col-md-2,.col-md-4,
+// .col-md-5,.col-md-6,.col-md-7,
+// .col-md-7,.col-md-8,.col-md-9,
+// .col-md-10,.col-md-11,.col-md-12{
+//   padding: 0;
+// }
+
 /* universal */
 
 body {
@@ -349,6 +357,22 @@ input {
 
 /* new-post-page */
 
+.post-user{
+  background-color: #F2F2F2;
+  padding: 10px;
+  margin: 15px;
+}
+
+
+
+.comments-content{
+  padding-top: 20px;
+}
+
+.comment-full{
+  margin: 15px;
+}
+
 .post-bar{
   padding: 0;
   // overflow: hidden;
@@ -390,7 +414,25 @@ padding: 4px;
   height: 400px;
 }
 
+.post-view-item{
+  margin: 15px;
+}
 
+#comment-for-form{
+  background-color: #FAFAFA;
+  height: 40px;
+  padding-top: 10px;
+  padding-left: 5px;
+  border-bottom: 5px solid red;
+}
+
+.no-margin-top{
+  margin-top: 0;
+}
+
+.no-margin-bottom{
+  margin-bottom: 0;
+}
 
 /* new-post-page */
 
@@ -422,6 +464,37 @@ padding: 4px;
 }
 
 /* user-page */
+
+/* setting-page */
+
+.setting-side-bar{
+  height: 700px;
+  background-color: #393D48;
+  padding-top: 20px;
+  color: #C5CBBD;
+}
+
+.setting-side-bar-item{
+  height: 31px;
+  background-color: #4E5465;
+  
+  .setting-side-dash{
+    background-color: #0D9687;
+  }
+}
+
+.setting-side-dash{
+  height: 31px;
+  width: 5px;
+  margin-right: 20px;
+  float: left;
+}
+
+
+/* setting-page */
+
+
+
 
 /* not my code */
 .switch {

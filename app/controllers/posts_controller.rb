@@ -10,6 +10,9 @@ class PostsController < ApplicationController
             @topic.save
         end
         @post.save
+        if logged_in?
+            @comment = Comment.new
+        end
     end
 
 

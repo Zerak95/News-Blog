@@ -69,11 +69,13 @@
     </div>
 
     <div class="row hide" id="selected-posts">
-      <% @posts.each do |post| %>
-        <% if post.topic.name != "News" %>
-          <div class="row hide topic-<%= post.topic.name %>">
-            <%= render post %>
-          </div>
+      <% if @posts.first%>
+        <% @posts.each do |post| %>
+          <% if post.topic.name != "News" %>
+            <div class="row hide topic-<%= post.topic.name %>">
+              <%= render post %>
+            </div>
+          <% end %>
         <% end %>
       <% end %>
     </div>

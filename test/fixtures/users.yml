@@ -2,3 +2,14 @@ zerak:
   name: zerak Example
   email: zerak@example.com
   password_digest: <%= User.digest('password') %>
+  phone_number: "0422802407"
+
+michael:
+  name: Michael Example
+  email: michael@example.com
+  password_digest: <%= User.digest('password') %>
+
+archer:
+  name: Sterling Archer
+  email: duchess@example.gov
+  password_digest: <%= User.digest('password') %>

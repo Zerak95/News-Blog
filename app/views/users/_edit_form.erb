@@ -1,0 +1,45 @@
+<div class="col-md-12">
+  <%= form_for(@user) do |f| %>
+    <%= render 'shared/error_messages', obj:@user %>
+    
+    <div class="row">
+      <div class="post-form-items col-md-7">
+          <span class="col-md-4 "><%= f.label :name %></span>
+          <span class="col-md-8 post-from"><%= f.text_field :name, class: 'form-control' %></span>
+      </div>
+    </div>
+
+    <br>
+
+    <div class="row">
+      <div class="post-form-items col-md-7">
+          <span class="col-md-4 "><%= f.label :email %></span>
+          <span class="col-md-8 post-from"><%= f.email_field :email, class: 'form-control' %></span>
+      </div>
+    </div>
+
+    <br>
+
+    <div class="row">
+      <div class="post-form-items col-md-7">
+          <span class="col-md-4 "><%= f.label :phone_number %></span>
+          <span class="col-md-8 post-from"><%= f.text_field :phone_number, class: 'form-control' %></span>
+      </div>
+    </div>
+
+    <br>
+
+    <div class="hide-">
+    <h1>remove this</h1>
+      <%= f.label :password %>
+      <%= f.password_field :password, class: 'form-control' %>
+
+      <%= f.label :password_confirmation, "Confirmation" %>
+      <%= f.password_field :password_confirmation, class: 'form-control' %>
+    </div>
+
+    <div class="row">
+      <%= f.submit "Confirm", class: "btn col-md-1 new-post-btn" %>
+    </div>
+  <% end %>
+</div>

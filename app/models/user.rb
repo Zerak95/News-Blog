@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   has_many :posts, dependent: :destroy
+  has_many :comments, dependent: :destroy
   before_save { email.downcase! }
   validates :name,  presence: true, length: { maximum: 50 }
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i
@@ -10,7 +11,7 @@ class User < ApplicationRecord
   VALID_PASSWORD_REGEX = /\A[0-9a-zA-Z]{8,20}$\z/
   has_secure_password
   validates :password, presence: true, length: { minimum: 8, maximum: 20 },
-                        format: { with: VALID_PASSWORD_REGEX }
+                      format: { with: VALID_PASSWORD_REGEX }, allow_nil: true
   VALID_PHONE_NUMBER_REGEX = /\A[0-9]{10,13}$\z/
   validates :phone_number, presence: true, length: { minimum: 10, maximum: 13 },
                             format: { with: VALID_PHONE_NUMBER_REGEX }
