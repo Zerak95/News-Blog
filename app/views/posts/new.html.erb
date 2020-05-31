@@ -1,0 +1,47 @@
+<% provide(:title, 'new post') %>
+<%= render 'shared/error_messages',obj:@post %>
+<div class="row">
+
+    <div class="row">
+        <div class="col-md-12 post-bar post-bar-grey">
+            <div class="green-dash"></div>
+            <p>Post</p>
+        </div>
+    </div>
+
+    
+    <div class="row post-from">
+        <div class="col-md-12">
+            <%= form_for(@post) do |f| %>
+
+            <div class="row ">
+                <div class="post-form-items col-md-5">
+                    <span class="col-md-2 "><%= f.label :topic %></span>
+                    <span class="col-md-10 post-from"><%= select(:post, :topic_id, post_topics)%></span>
+                    
+                </div>
+            </div>
+            <br>
+
+            <div class="row post-form-items">
+                
+                <span class="col-md-1 "><%= f.label :title %></span>
+                <span class="col-md-11 post-from"><%= f.text_field :title, placeholder: "Enter post title here", class: 'post-from-title' %></span>
+
+            </div>
+
+            <br>
+
+            <div class="row">
+                <%= f.text_area :content, placeholder: "Enter your post here", class: 'post-from-text' %>
+            </div>
+
+            <div class="row">
+                <%= f.submit "Create Post", class: "btn col-md-1 new-post-btn" %>
+            </div>
+            
+            <% end %>
+
+        </div>
+    </div>
+</div>

@@ -21,11 +21,11 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
     assert_difference 'User.count', 1 do
       post users_path, params: { user: { name:  "Example User",
                                          email: "user@example.com",
+                                         phone_number: "1234567890",
                                          password:              "password",
                                          password_confirmation: "password" } }
     end
     follow_redirect!
-    # cant use the below test without the rails-controller-testing gem
-    # assert_template 'users/show'
+    assert is_logged_in?
   end
 end

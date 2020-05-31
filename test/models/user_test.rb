@@ -4,7 +4,8 @@ class UserTest < ActiveSupport::TestCase
 
   def setup
     @user = User.new(name: "Example User", email: "user@example.com",
-                     password: "foobar", password_confirmation: "foobar")
+                      phone_number: "1234567890",
+                      password: "foobar78", password_confirmation: "foobar78")
   end
 
   test "should be valid" do
@@ -21,6 +22,11 @@ class UserTest < ActiveSupport::TestCase
     assert_not @user.valid?
   end
 
+  test "phone number should be present" do
+    @user.phone_number = "     "
+    assert_not @user.valid?
+  end
+
   test "name should not be too long" do
     @user.name = "a" * 51
     assert_not @user.valid?
@@ -28,6 +34,16 @@ class UserTest < ActiveSupport::TestCase
 
   test "email should not be too long" do
     @user.email = "a" * 244 + "@example.com"
+    assert_not @user.valid?
+  end
+
+  test "phone number should not be too long" do
+    @user.email = "1" * 14
+    assert_not @user.valid?
+  end
+
+  test "phone number should not be too short" do
+    @user.email = "1" * 9 
     assert_not @user.valid?
   end
 
@@ -69,7 +85,17 @@ class UserTest < ActiveSupport::TestCase
   end
 
   test "password should have a minimum length" do
-    @user.password = @user.password_confirmation = "a" * 5
+    @user.password = @user.password_confirmation = "a" * 7
+    assert_not @user.valid?
+  end
+
+  test "password should have a maximum length" do
+    @user.password = @user.password_confirmation = "a" * 21
+    assert_not @user.valid?
+  end
+
+  test "password should have not contain empty space" do
+    @user.password = @user.password_confirmation = "a  wef" * 3
     assert_not @user.valid?
   end
 end

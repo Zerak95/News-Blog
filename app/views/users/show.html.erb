@@ -1,4 +1,30 @@
 <% provide(:title, @user.name) %>
+
+<div class="row white-background" id="user-profile-top">
+  <div class="center">
+    <div class="row">
+      <div class="center">
+        <%= (gravatar_for @user, size: 80)%>
+      </div>
+    </div>
+
+    <div class="row">
+      <h3><%= @user.name %></h3>
+    </div>
+
+    <div class="row">
+      <h6>last active: <%= @user.last_active.strftime("%Y-%m-%d") %></h6>
+    </div>
+
+    <div class="row">
+      <h6>city ????????????????????</h6>
+    </div>
+
+  </div>
+</div>
+
+
+
 <div class="row">
   <aside class="col-md-4">
     <section class="user_info">
@@ -8,4 +34,49 @@
       </h1>
     </section>
   </aside>
+</div>
+
+
+<div class="row">
+  <div class="col-md-6 user-info-section">
+    <div class="post-bar-grey"> <%= @user.name %> Recent posts:</div>
+
+    <div class="white-background user-info-section">
+      
+      <% if @user.posts.first%>
+        <% @user.posts.order('created_at DESC').limit(8).each do |post| %>
+          <div class="row">
+            <div class="col-md-12">
+              <span class="col-md-9"><%= link_to (post.title[0..40]), post %> 
+              <%= "..." if post.title.length > 40 %></span>
+              
+                <span class="col-md-3"><%= post.created_at.strftime("%Y-%m-%d")%></span> 
+            </div>
+          </div>
+          <hr>
+        <% end %>
+      <% end %>
+    
+    </div>
+  </div>
+  
+  <div class="col-md-6 user-info-section">
+    <div class="post-bar-grey"> <%= @user.name %> Recent comments:</div>
+    <div class="white-background user-info-section">
+      <% if @user.comments.first%>
+        <% @user.comments.order('created_at DESC').limit(8).each do |comment| %>
+          <div class="row">
+            <div class="col-md-12">
+              <span class="col-md-9"><%= link_to (comment.content[0..40]), comment.post %> 
+              <%= "..." if comment.content.length > 40 %></span>
+              
+                <span class="col-md-3"><%= comment.created_at.strftime("%Y-%m-%d")%></span> 
+            </div>
+          </div>
+          <hr>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+
 </div>

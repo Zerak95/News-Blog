@@ -1,0 +1,69 @@
+<% provide(:title, "Show post") %>
+<div class="row white-background">
+
+  <div class="row post-view-item">
+    <h3 class="col-md-12"><%= @post.title %></h3>
+  </div>
+
+  <div class="row post-view-item">
+    <span class="col-md-1 white-grey">
+      <%= @post.topic.name %>
+    </span>
+
+    <h6 class="col-md-2 col-md-offset-7">comment count: <%= @post.comments.count%></h6>
+    <h6 class="col-md-2">view count: <%= @post.view_count%></h6>
+
+  </div>
+
+  <div class="row post-user">
+    <div class="col-md-1 news-user-avatar"><%= link_to (gravatar_for @post.user, size: 45), @post.user %></div>
+    <h6 class="col-md-1"><%= link_to @post.user.name, @post.user %></h6>
+    <h6 class="col-md-2"><%= @post.created_at.strftime("%Y-%m-%d %H:%M:%S") %></h6>
+  </div>
+
+
+  <div class="row post-view-item">
+    <p class="col-md-11"><%= @post.content%></p>
+  </div>
+
+  <div class="row post-view-item no-margin-bottom">
+    <h4 class="col-md-1 no-margin-bottom" id="comment-for-form">Comment</h4>
+  </div>
+  <hr class="post-view-item no-margin-top">
+  
+  <div class="row post-view-item post-from">
+    <div class="col-md-11">
+      <% if !!logged_in? %>
+        <%= form_for(@comment, url: comments_path) do |f| %>
+          <%= render 'shared/error_messages',obj:@comment %>
+
+          <%= f.hidden_field :post_id, :value => @post.id%>
+
+          <div class="row">
+            <%= f.text_area :content, placeholder: "Enter your post here", class: 'comment-from-text' %>
+          </div>
+          <%= f.submit "post", class: "col-md-1 btn btn-primary" %>
+        <% end %>
+      <% else %>
+        <%= link_to "Login to comment", login_path%>
+      <% end %>
+    </div>
+  </div>
+
+
+  <div class="row">
+    <h4 class="col-md-2 col-md-offset-10"><%= @post.comments.count%> Comments</h4>
+  </div>
+
+
+  <% if @post.comments.first%>
+    <% @post.comments.each do |comment| %>
+      <hr class="post-view-item">
+      <div class="row">
+        <%= render comment %>
+      </div>
+    <% end %>
+  <% end %>
+
+  
+</div>

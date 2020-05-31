@@ -1,0 +1,220 @@
+<% provide(:title, "Edit user") %>
+
+<div class="row">
+  <div class="col-md-3">
+    <div class="col-md-12 setting-side-bar">
+
+      <div class="row">  
+
+        <div class="setting-side-bar-item" id="profile-btn">
+            <div class="setting-side-dash"></div>
+            <%= link_to "My Profile", user_path(current_user) %>
+        </div>
+
+      </div>
+
+      <div class="row">
+            
+        <div class="setting-side-bar-item" id="posts-btn">
+          <div class="setting-side-dash"></div>
+            My Posts
+          </div>
+        </div>
+
+        <div class="row">     
+          <div class="setting-side-bar-item" id="comments-btn">
+            <div class="setting-side-dash"></div>
+              My Comments
+            </div>
+          </div>
+
+          <div class="row">   
+            <div class="setting-side-bar-item" id="comments-to-me-btn">
+              <div class="setting-side-dash"></div>
+              Comments to ME
+            </div>
+          </div>
+
+          <div class="row">   
+            <div class="setting-side-bar-item side-bar-selected" id="setting-btn">
+              <div class="setting-side-dash"></div>
+              Setting
+            </div>
+          </div>
+        </div>
+    </div>
+
+  <div class="col-md-9 white-background posts-window hide">
+    <% if @user.posts.first%>
+      <% @user.posts.each do |post| %>
+        <div class="row">
+        <div class="col-md-12">
+            <span class="col-md-9"><%= link_to (post.title[0..40]), post %> 
+            <%= "..." if post.title.length > 40 %></span>
+            
+            <span class="col-md-3"><%= post.created_at.strftime("%Y-%m-%d")%></span> 
+        </div>
+        </div>
+        <hr>
+      <% end %>
+    <% end %>
+  </div>
+
+  <div class="col-md-9 white-background comments-window hide">
+    <% if @user.comments.first%>
+      <% @user.comments.order('created_at DESC').limit(8).each do |comment| %>
+        <div class="row">
+          <div class="col-md-12">
+            <span class="col-md-9"><%= link_to (comment.content[0..40]), comment.post %> 
+            <%= "..." if comment.content.length > 40 %></span>
+            
+            <span class="col-md-3"><%= comment.created_at.strftime("%Y-%m-%d")%></span> 
+          </div>
+        </div>
+        <hr>
+      <% end %>
+    <% end %>
+  </div>
+
+  <div class="col-md-9 white-background comments-to-me-window hide">
+
+    <% if @user.posts.first%>
+      <% @user.posts.each do |post| %>
+        <% if post.comments.first %>
+          <% post.comments.each do |comment| %>
+            <div class="row">
+              <div class="col-md-1"></div>
+                <%= link_to comment.user.name, comment.user %> commented on <%= link_to (comment.post.title[0..40]), comment.post %> 
+                <%= "..." if post.title.length > 40 %>
+              
+            </div>
+            <div class="row">
+            
+              <div class="col-md-12">
+                <span class="col-md-9"><%= link_to (comment.content[0..40]), comment.post %> 
+                <%= "..." if comment.content.length > 40 %></span>
+              
+                <span class="col-md-3"><%= comment.created_at.strftime("%Y-%m-%d")%></span> 
+              </div>
+            </div>
+            <hr>
+          <% end %>
+          
+        <% end %>
+      <% end %>
+    <% end %>
+  
+  </div>
+
+  <div class="col-md-9 white-background setting-info-window">
+
+    <div class="row margin-left-15">
+      <span class="col-md-2 post-tab user-selected" id="personal-info-btn">Personal Info</span>
+      <span class="col-md-2 post-tab" id="avatar-btn">Avatar</span>
+      <span class="col-md-2 post-tab " id="password-btn">Password</span>
+      <span class="col-md-2 post-tab" id="verification-btn">Verification</span>
+      <hr>
+    </div>
+
+    <div class="row">
+      <div class=" user-info-edit">
+        <%= render 'edit_form' %>
+      </div>
+
+      <div class="user-password hide">
+        <%= render 'edit_password' %>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+
+let profileBtn = document.querySelector("#profile-btn");
+let postsBtn = document.querySelector("#posts-btn");
+let commentsBtn = document.querySelector("#comments-btn");
+let commentsToMeBtn = document.querySelector("#comments-to-me-btn");
+let settingBtn = document.querySelector("#setting-btn");
+
+let personalBtn = document.querySelector("#personal-info-btn");
+let avatarBtn = document.querySelector("#avatar-btn");
+let passwordBtn = document.querySelector("#password-btn");
+let verificationBtn = document.querySelector("#verification-btn");
+
+let userInfoEdit = document.querySelector(".user-info-edit");
+let userPass = document.querySelector(".user-password");
+
+let settingWindow = document.querySelector(".setting-info-window"); 
+let commentsToMeWindow = document.querySelector(".comments-to-me-window");
+let postsWindow = document.querySelector(".posts-window");
+let commentsWindow = document.querySelector(".comments-window");
+
+function removeSelectionBar() {
+  profileBtn.classList.remove("side-bar-selected");
+  postsBtn.classList.remove("side-bar-selected");
+  commentsBtn.classList.remove("side-bar-selected");
+  commentsToMeBtn.classList.remove("side-bar-selected");
+  settingBtn.classList.remove("side-bar-selected");
+  settingWindow.classList.add("hide");
+  commentsToMeWindow.classList.add("hide");
+  postsWindow.classList.add("hide");
+  commentsWindow.classList.add("hide");
+}
+
+function selectedBar(element) {
+    removeSelectionBar();
+    element.classList.add("side-bar-selected");
+}
+
+profileBtn.addEventListener("click", event =>{selectedBar(profileBtn)});
+postsBtn.addEventListener("click", event =>{
+    selectedBar(postsBtn);
+    postsWindow.classList.remove("hide");
+});
+commentsBtn.addEventListener("click", event =>{
+    selectedBar(commentsBtn);
+    commentsWindow.classList.remove("hide");
+});
+commentsToMeBtn.addEventListener("click", event =>{
+    selectedBar(commentsToMeBtn);
+    commentsToMeWindow.classList.remove("hide");
+});
+settingBtn.addEventListener("click", event =>{
+    selectedBar(settingBtn);
+    settingWindow.classList.remove("hide");
+});
+
+
+function removeSelectionTab() {
+  personalBtn.classList.remove("user-selected");
+  avatarBtn.classList.remove("user-selected");
+  passwordBtn.classList.remove("user-selected");
+  verificationBtn.classList.remove("user-selected");
+  userInfoEdit.classList.add("hide");
+  userPass.classList.add("hide");
+}
+
+function selectedTab(element) {
+    removeSelectionTab();
+    element.classList.add("user-selected");
+}
+
+personalBtn.addEventListener("click", event =>{
+  selectedTab(personalBtn);
+  userInfoEdit.classList.remove("hide");
+});
+avatarBtn.addEventListener("click", event =>{selectedTab(avatarBtn)});
+passwordBtn.addEventListener("click", event =>{
+  selectedTab(passwordBtn);
+  userPass.classList.remove("hide");
+});
+verificationBtn.addEventListener("click", event =>{selectedTab(verificationBtn)});
+
+
+
+window.onerror = function() {
+    location.reload();
+}
+
+</script>
